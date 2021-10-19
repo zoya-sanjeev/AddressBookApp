@@ -50,7 +50,6 @@ window.addEventListener("DOMContentLoaded", (event) =>{
 });
 
 const save = (event) =>{
-    console.log("in save");
     event.preventDefault();
     try{
         setContactObject();
@@ -74,7 +73,6 @@ setContactObject = () => {
 }
 
 createAndUpdateStorage = () => {
-    console.log(contactObj);
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
 
     if (contactList) {
@@ -83,7 +81,7 @@ createAndUpdateStorage = () => {
         contactList = [contactObj];
     }
     localStorage.setItem("ContactList", JSON.stringify(contactList));
-    alert(contactObj);
+
 }
 
 const getInputValue = (selector) => {
