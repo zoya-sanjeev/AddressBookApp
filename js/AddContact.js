@@ -1,9 +1,10 @@
 window.addEventListener("DOMContentLoaded", (event) =>{
    
     const name=document.querySelector('#name');
-    const nameError = document.querySelector('.name-error');
-    name.addEventListener('input', function(){
+    const nameError = document.querySelector('.text-error');
+    name.addEventListener('input', ()=>{
     if(name.value.length == 0){
+        console.log("Hello");
       nameError.textContent ="";
       return;
     }
