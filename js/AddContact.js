@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", (event) =>{
     const nameError = document.querySelector('.text-error');
     name.addEventListener('input', ()=>{
     if(name.value.length == 0){
-        console.log("Hello");
       nameError.textContent ="";
       return;
     }
