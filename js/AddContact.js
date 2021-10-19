@@ -50,6 +50,7 @@ window.addEventListener("DOMContentLoaded", (event) =>{
 });
 
 const save = (event) =>{
+    console.log("in save");
     event.preventDefault();
     try{
         setContactObject();
@@ -65,13 +66,14 @@ const reset = () =>{
 setContactObject = () => {
     contactObj.name = getInputValue("#name");
     contactObj.address = getInputValue("#address");
-    contactObj.phone = getInputValue("#tel");
+    contactObj.phone = getInputValue("#phoneNumber");
     contactObj.city = getInputValue("#city");
     contactObj.state = getInputValue("#state");
     contactObj.pincode = getInputValue("#zip");
 }
 
 createAndUpdateStorage = () => {
+    console.log(contactObj);
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
 
     if (contactList) {
@@ -81,3 +83,8 @@ createAndUpdateStorage = () => {
     }
     localStorage.setItem("ContactList", JSON.stringify(contactList));
 }
+
+const getInputValue = (selector) => {
+    let value = document.querySelector(selector).value;
+    return value;
+  }
