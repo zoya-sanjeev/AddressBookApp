@@ -201,3 +201,9 @@ body {
     margin-right: 30px;
     background-color: #e2e2e2;
   }
+  .cancelButton{
+    text-decoration: none;
+    text-align: center;
+    background-color: #e2e2e2 ;
+    margin-right: 360px;
+}
