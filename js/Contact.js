@@ -56,4 +56,9 @@ class Contact{
   set zipCode(zipCode) {
     this.zipCode = zipCode;
   }
+
+  toString() {
+      return ("id=" + this.id + ",name=" + this.name + ",phone number=" + this.phone 
+        + ",address=" + this.address + ",city=" + this.city + ",state=" + this.state + ",zipcode=" + this.zipCode);
+  }
 }

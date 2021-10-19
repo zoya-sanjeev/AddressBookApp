@@ -82,6 +82,7 @@ createAndUpdateStorage = () => {
         contactList = [contactObj];
     }
     localStorage.setItem("ContactList", JSON.stringify(contactList));
+    alert(contactObj);
 }
 
 const getInputValue = (selector) => {
