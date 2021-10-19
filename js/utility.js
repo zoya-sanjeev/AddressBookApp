@@ -7,3 +7,9 @@ const checkPhoneNumber = (phone) => {
     let phoneRegex = RegExp("^(\\+[0-9]{2}|[0-9]{2})?[6-9]{1}[0-9]{9}$");
     if (!phoneRegex.test(phone)) throw "Phone number is incorrect";
 }
+
+const checkAddress = (address) => {
+    address += " ";
+    let addressRegex = RegExp("^(.{3,}\\s){2,}$");
+    if (!addressRegex.test(address)) throw "Address is incorrect";
+}

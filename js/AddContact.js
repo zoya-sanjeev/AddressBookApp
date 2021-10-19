@@ -14,4 +14,19 @@ window.addEventListener("DOMContentLoaded", (event) =>{
       nameError.textContent = e;
     }
   });
+
+    const phone=document.querySelector('#phoneNumber');
+    const phoneError = document.querySelector('.tel-error');
+    phone.addEventListener('input', ()=>{
+    if(phone.value.length == 0){
+      phoneError.textContent ="";
+      return;
+    }
+    try{
+      checkPhoneNumber(phone.value); 
+      phoneError.textContent ="";
+    }catch(e){
+      phoneError.textContent = e;
+    }
+  });
 })
