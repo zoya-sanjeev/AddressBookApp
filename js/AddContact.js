@@ -29,4 +29,20 @@ window.addEventListener("DOMContentLoaded", (event) =>{
       phoneError.textContent = e;
     }
   });
+
+    const address=document.querySelector('#address');
+    const addressError = document.querySelector('.address-error');
+    address.addEventListener('input', ()=>{
+    if(address.value.length == 0){
+      addressError.textContent ="";
+      return;
+    }
+    try{
+      checkAddress(address.value); 
+      addressError.textContent ="";
+    }catch(e){
+      addressError.textContent = e;
+    }
+  });
+
 })
