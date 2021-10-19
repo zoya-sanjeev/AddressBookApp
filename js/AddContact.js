@@ -1,3 +1,5 @@
+let contactObj ={};
+
 window.addEventListener("DOMContentLoaded", (event) =>{
    
     const name=document.querySelector('#name');
@@ -47,9 +49,24 @@ window.addEventListener("DOMContentLoaded", (event) =>{
 
 });
 
-const submit = (event) =>{
-
+const save = (event) =>{
+    event.preventDefault();
+    try{
+        setContactObject();
+        createAndUpdateStorage();
+    }catch(e){
+        console.log(e);
+    }
 }
 const reset = () =>{
-    
+
+}
+
+setContactObject = () => {
+    contactObj.name = getInputValue("#name");
+    contactObj.address = getInputValue("#address");
+    contactObj.phone = getInputValue("#tel");
+    contactObj.city = getInputValue("#city");
+    contactObj.state = getInputValue("#state");
+    contactObj.pincode = getInputValue("#zip");
 }
