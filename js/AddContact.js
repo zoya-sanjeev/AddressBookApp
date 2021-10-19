@@ -70,3 +70,7 @@ setContactObject = () => {
     contactObj.state = getInputValue("#state");
     contactObj.pincode = getInputValue("#zip");
 }
+
+createAndUpdateStorage = () => {
+    
+}
