@@ -4,14 +4,14 @@ window.addEventListener("DOMContentLoaded", (event) =>{
     const nameError = document.querySelector('.name-error');
     name.addEventListener('input', function(){
     if(name.value.length == 0){
-      textError.textContent ="";
+      nameError.textContent ="";
       return;
     }
     try{
       checkName(name.value); 
-      textError.textContent ="";
+      nameError.textContent ="";
     }catch(e){
-      textError.textContent = e;
+      nameError.textContent = e;
     }
   });
 })
