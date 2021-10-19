@@ -45,4 +45,11 @@ window.addEventListener("DOMContentLoaded", (event) =>{
     }
   });
 
-})
+});
+
+const submit = (event) =>{
+
+}
+const reset = () =>{
+    
+}
