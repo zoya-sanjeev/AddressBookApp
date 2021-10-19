@@ -55,6 +55,7 @@ const save = (event) =>{
     try{
         setContactObject();
         createAndUpdateStorage();
+        window.location.replace(site_properties.home_page);
     }catch(e){
         console.log(e);
     }
