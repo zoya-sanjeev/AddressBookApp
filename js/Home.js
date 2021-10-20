@@ -18,7 +18,6 @@ const createInnerHtml = () => {
     if (contactList.length == 0) return;
     let innerHtml = `${headerHtml}`;
     for (const contactData of contactList) {
-        console.log(contactData);
       innerHtml = `${innerHtml}
           <tr>
           <td>${contactData.name}</td>
@@ -41,8 +40,8 @@ const createInnerHtml = () => {
     let contactData = contactList.find(contactPerson => contactPerson.id == node.id);
     if (!contactData) return;
     const index = contactList
-      .map(contactPerson => contactPerson.id)
-      .indexOf(contactPerson.id);
+                .indexOf(contactData);
+    console.log(index);
     contactList.splice(index, 1);
     localStorage.setItem("ContactList",JSON.stringify(contactList));
     document.querySelector(".address-count").textContent = contactList.length;
