@@ -1,16 +1,26 @@
 let contactList;
 window.addEventListener("DOMContentLoaded", (event) => {
+    if(site_properties.use_local_storage.match("true"))
+        getContactDataFromStorage();
+    else    
+        getContactDataFromServer();
     contactList = getContactDataFromStorage();
+});
+
+const processContactDataResponse = () =>{
     document.querySelector(".address-count").textContent = contactList.length;
     createInnerHtml();
     localStorage.removeItem("editContact");
-});
+}
 
 const getContactDataFromStorage = () => {
     return localStorage.getItem("ContactList")
       ? JSON.parse(localStorage.getItem("ContactList"))
       : [];
-};
+    processContactDataResponse();
+}
+
+
 const createInnerHtml = () => {
     const headerHtml =
       "<tr><th>Full Name</th><th>Address</th><th>City</th>" +
