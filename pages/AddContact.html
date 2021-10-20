@@ -22,7 +22,7 @@
         <form class="form" action="#" onsubmit="save(event)" onreset="reset()" autocomplete="off">
             <div class="form-head">
                 <h1 class="form-head-title">Person Address Form</h1>
-                <a href="../pages/home.html" class="cross">
+                <a href="../pages/Home.html" class="cross">
                 <img src="../assets/cross.png" class="cross" />
                     </a>
             </div>
@@ -39,14 +39,14 @@
               <div class="row-content">
                 <div class="text-row">
                   <label class="label text" for="address">Address</label>
-                  <textarea id="address" class="input" name="Address" placeholder="" style="height: 100px" ></textarea>
+                  <textarea id="address" class="input" name="Address" placeholder="" style="height: 100px" required></textarea>
                   <error-output id="address-error" class="address-error" for="address"></error-output>
                 </div>
               </div>
               <div class="row-content location-row">
                 <div>
                   <label class="label text" for="city">City</label>
-                  <select id="city" name="City">
+                  <select id="city" name="City" required>
                     <option value="" disabled selected hidden>Select City</option>
                     <option value="Hyderabad">Hyderabad</option>
                     <option value="Pune">Pune</option>
@@ -55,7 +55,7 @@
                 </div>
                 <div>
                   <label class="label text" for="state">State</label>
-                  <select id="state" name="State">
+                  <select id="state" name="State" required>
                     <option value="" disabled selected hidden>Select State</option>
                     <option value="Telangana">Telangana</option>
                     <option value="Maharashtra">Maharashtra</option>
