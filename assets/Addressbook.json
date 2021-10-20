@@ -1,0 +1,22 @@
+{
+    "AddressBook": [
+      {
+        "id": 1,
+        "name": "Harry Potter",
+        "address": "Privet Drive",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "phone": "8989898989",
+        "pincode": "987654"
+      },
+      {
+        "id": 2,
+        "name": "Draco Malfoy",
+        "address": "Malfoy Manor",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "phone": "9900990000",
+        "pincode": "452345"
+      }
+    ]
+  }
