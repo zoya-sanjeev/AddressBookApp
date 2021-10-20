@@ -138,10 +138,11 @@ tr:not(:first-child){
     border-radius: 3px;
 }
 td{
-    font: normal normal normal 14px/21px Roboto;
+    font: normal normal normal 18px/22px Lato;
     letter-spacing: 0px;
     color: #3d3d3d;
     opacity: 1;
+    padding: 20px;
 }
 td:first-child{
     display: flex;
