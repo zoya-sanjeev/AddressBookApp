@@ -20,16 +20,7 @@
     },
     {
       "name": "Hermione",
-      "address": "Hogsmeade village",
-      "phone": "7788778877",
-      "city": "Bangalore",
-      "state": "Karnataka",
-      "pincode": "990099",
-      "id": 3
-    },
-    {
-      "name": "Hermione",
-      "address": "Hogs Village",
+      "address": "Hogs Village 123",
       "phone": "9988776655",
       "city": "Bangalore",
       "state": "Karnataka",
