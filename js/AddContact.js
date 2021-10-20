@@ -94,7 +94,6 @@ const createOrUpdateContact = () =>{
     }
     makeServiceCall(methodCall,postUrl, true, contactObj)
         .then(responseText => {
-            resetForm();
             window.location.replace(site_properties.home_page);
         })
         .catch(error =>{
