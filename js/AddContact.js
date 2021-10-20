@@ -75,9 +75,14 @@ setContactObject = () => {
 createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
 
-    if (contactList) {
+    if (contactList != undefined) {
+        if(contactList.length == 0)
+            contactObj.id = 1;
+        else
+            contactObj.id = contactList[contactList.length -1].id + 1;
         contactList.push(contactObj);
     } else {
+        contactObj.id = 1;
         contactList = [contactObj];
     }
     localStorage.setItem("ContactList", JSON.stringify(contactList));
