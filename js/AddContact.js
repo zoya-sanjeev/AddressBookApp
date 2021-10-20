@@ -60,7 +60,12 @@ const save = (event) =>{
     }
 }
 const reset = () =>{
-
+    setValue("#name", "");
+    setValue("#phoneNumber", "");
+    setValue("#address", "");
+    setSelectedIndex('#city', 0);
+    setSelectedIndex('#state', 0);
+    setValue("#zip", "");
 }
 
 setContactObject = () => {
