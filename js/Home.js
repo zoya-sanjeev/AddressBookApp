@@ -11,3 +11,27 @@ const getContactDataFromStorage = () => {
       ? JSON.parse(localStorage.getItem("ContactList"))
       : [];
 };
+const createInnerHtml = () => {
+    const headerHtml =
+      "<tr><th>Full Name</th><th>Address</th><th>City</th>" +
+      "<th>State</th><th>Zip Code</th><th>Phone Number</th><th>Actions</th></tr>";
+    if (contactList.length == 0) return;
+    let innerHtml = `${headerHtml}`;
+    for (const contactData of contactList) {
+        console.log(contactData);
+      innerHtml = `${innerHtml}
+          <tr>
+          <td>${contactData.name}</td>
+          <td>${contactData.address}</td>
+          <td>${contactData.city}
+          <td>${contactData.state}</td>
+          <td>${contactData.phone}</td>
+          <td>
+          <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+          <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+          </td>
+          </tr>
+          `;
+    }
+    document.querySelector("#table-display").innerHTML = innerHtml;
+  };
