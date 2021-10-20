@@ -37,7 +37,10 @@ const createInnerHtml = () => {
   };
 
   const remove = (node) => {
+      console.log("HEllo");
+      console.log(node.id);
     let contactData = contactList.find(contactPerson => contactPerson.id == node.id);
+
     if (!contactData) return;
     const index = contactList
                 .indexOf(contactData);
