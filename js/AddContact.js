@@ -73,11 +73,33 @@ const save = (event) =>{
     event.stopPropagation();
     try{
         setContactObject();
+        if(site_properties.use_local_storage.match("true")){
         createAndUpdateStorage();
         window.location.replace(site_properties.home_page);
+        }
+        else{
+            createOrUpdateContact();
+        }
     }catch(e){
         console.log(e);
     }
+}
+
+const createOrUpdateContact = () =>{
+    let postUrl = site_properties.server_url;
+    let methodCall = "POST";
+    if(isUpdate){
+        methodCall = "PUT"
+        postUrl = postUrl + contactObj.id.toString();
+    }
+    makeServiceCall(methodCall,postUrl, true, contactObj)
+        .then(responseText => {
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        })
+        .catch(error =>{
+            throw error;
+        });
 }
 const reset = () =>{
     setValue("#name", "");
