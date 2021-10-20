@@ -36,3 +36,16 @@ const createInnerHtml = () => {
     }
     document.querySelector("#table-display").innerHTML = innerHtml;
   };
+
+  const remove = (node) => {
+    let contactData = contactList.find(contactPerson => contactPerson.id == node.id);
+    if (!contactData) return;
+    const index = contactList
+      .map(contactPerson => contactPerson.id)
+      .indexOf(contactPerson.id);
+    contactList.splice(index, 1);
+    localStorage.setItem("ContactList",JSON.stringify(contactList));
+    document.querySelector(".address-count").textContent = contactList.length;
+    createInnerHtml();
+    
+  }
