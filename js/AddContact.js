@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", (event) =>{
 });
 
 const checkForUpdate = () =>{
-    const contactJson = localStorage.getItem('editEmp');
+    const contactJson = localStorage.getItem('editContact');
     isUpdate = contactJson ? true : false;
     if(!isUpdate) return;
     contactObj = JSON.parse(contactJson);
@@ -70,6 +70,7 @@ const setForm = () => {
 
 const save = (event) =>{
     event.preventDefault();
+    event.stopPropagation();
     try{
         setContactObject();
         createAndUpdateStorage();
@@ -99,12 +100,19 @@ setContactObject = () => {
 createAndUpdateStorage = () => {
     let contactList = JSON.parse(localStorage.getItem("ContactList"));
 
-    if (contactList != undefined) {
-        if(contactList.length == 0)
-            contactObj.id = 1;
-        else
+    if (contactList) {
+        if(isUpdate){
+            const index = contactList.map((data) => data.id).indexOf(contactObj.id);
+            contactList.splice(index,1, contactObj);
+        }
+        else{
+         if(contactList.length == 0)
+             contactObj.id = 1;
+         else
             contactObj.id = contactList[contactList.length -1].id + 1;
         contactList.push(contactObj);
+        }
+         
     } else {
         contactObj.id = 1;
         contactList = [contactObj];
@@ -117,3 +125,8 @@ const getInputValue = (selector) => {
     let value = document.querySelector(selector).value;
     return value;
   }
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}

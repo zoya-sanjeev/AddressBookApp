@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     contactList = getContactDataFromStorage();
     document.querySelector(".address-count").textContent = contactList.length;
     createInnerHtml();
-    localStorage.removeItem("editEmp");
+    localStorage.removeItem("editContact");
 });
 
 const getContactDataFromStorage = () => {
@@ -27,8 +27,8 @@ const createInnerHtml = () => {
           <td>${contactData.pincode}</td>
           <td>${contactData.phone}</td>
           <td>
-          <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-          <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+          <img id="${contactData.id}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+          <img id="${contactData.id}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
           </td>
           </tr>
           `;
@@ -37,8 +37,6 @@ const createInnerHtml = () => {
   };
 
   const remove = (node) => {
-      console.log("HEllo");
-      console.log(node.id);
     let contactData = contactList.find(contactPerson => contactPerson.id == node.id);
 
     if (!contactData) return;
@@ -50,4 +48,13 @@ const createInnerHtml = () => {
     document.querySelector(".address-count").textContent = contactList.length;
     createInnerHtml();
     
+  }
+
+  const update = (node) => {
+    console.log(node);
+    let contactData = contactList.find(contactPerson => contactPerson.id == node.id);
+    console.log(contactData);
+    if (!contactData) return;
+    localStorage.setItem("editContact", JSON.stringify(contactData));
+    window.location.replace(site_properties.add_contact_page);
   }
