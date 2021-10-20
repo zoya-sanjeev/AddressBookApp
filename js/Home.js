@@ -14,13 +14,24 @@ const processContactDataResponse = () =>{
 }
 
 const getContactDataFromStorage = () => {
-    return localStorage.getItem("ContactList")
+    contactList= localStorage.getItem("ContactList")
       ? JSON.parse(localStorage.getItem("ContactList"))
       : [];
     processContactDataResponse();
 }
 
-
+const getContactDataFromServer = () =>{
+    makeServiceCall("GET", site_properties.server_url, true)
+        .then(responseText =>{
+            contactList = JSON.parse(responseText);
+            processContactDataResponse()
+        })
+        .catch(error => {
+            console.log("GET Error Status: " + JSON.stringify(error));
+            contactList = [];
+            processContactDataResponse();
+        });
+}
 const createInnerHtml = () => {
     const headerHtml =
       "<tr><th>Full Name</th><th>Address</th><th>City</th>" +
