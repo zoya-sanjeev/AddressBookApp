@@ -1,7 +1,7 @@
 let contactList;
 window.addEventListener("DOMContentLoaded", (event) => {
     contactList = getContactDataFromStorage();
-    document.querySelector(".address-count").textContent = employeePayrollList.length;
+    document.querySelector(".address-count").textContent = contactList.length;
     createInnerHtml();
     localStorage.removeItem("editEmp");
 });
@@ -25,6 +25,7 @@ const createInnerHtml = () => {
           <td>${contactData.address}</td>
           <td>${contactData.city}
           <td>${contactData.state}</td>
+          <td>${contactData.pincode}</td>
           <td>${contactData.phone}</td>
           <td>
           <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
