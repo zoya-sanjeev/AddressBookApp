@@ -1,5 +1,5 @@
 let contactObj ={};
-
+let isUpdate = false;
 window.addEventListener("DOMContentLoaded", (event) =>{
    
     const name=document.querySelector('#name');
@@ -47,7 +47,26 @@ window.addEventListener("DOMContentLoaded", (event) =>{
     }
   });
 
+  checkForUpdate();
+
 });
+
+const checkForUpdate = () =>{
+    const contactJson = localStorage.getItem('editEmp');
+    isUpdate = contactJson ? true : false;
+    if(!isUpdate) return;
+    contactObj = JSON.parse(contactJson);
+    setForm();
+}
+
+const setForm = () => {
+    setValue('#name', contactObj.name);
+    setValue('#phoneNumber', contactObj.phone);
+    setValue('#address', contactObj.address);
+    setValue('#city', contactObj.city);
+    setValue('#state', contactObj.state);
+    setValue('#zip', contactObj.pincode);
+}
 
 const save = (event) =>{
     event.preventDefault();
